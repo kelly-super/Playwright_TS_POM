@@ -25,7 +25,7 @@ export class ProductDetailPage {
   async ClickaAdToTrolley() {
     this.add_to_trolley.click();
   }
-  async AddNotes(notes) {
+  async AddNotes(notes: string) {
     this.personal_shopper_notes_toggle.click();
     this.instruction_note.fill(notes);
     this.save_notes.click();

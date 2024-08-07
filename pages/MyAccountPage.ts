@@ -15,7 +15,7 @@ export class MyAccountPage {
     });
   }
 
-  async enterEmail(email) {
+  async enterEmail(email: string) {
     await this.email_input.click();
     await this.email_input.fill(email);
   }

@@ -6,12 +6,12 @@ export class SearchProductPage {
   readonly filter_by_select_first: Locator;
   readonly filter_by_select_second: Locator;
   readonly sort_by_select: Locator;
-  readonly product_grid: Locator;
-  readonly product_item: Locator;
+  readonly product_grid!: Locator;
+  readonly product_item!: Locator;
   readonly categories: Locator;
-  readonly categories_list: Locator;
+  readonly categories_list!: Locator;
   readonly back_to_top: Locator;
-  readonly add_to_trolley: Locator;
+  readonly add_to_trolley!: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -29,14 +29,14 @@ export class SearchProductPage {
     // this.categories_list = page.locator();
   }
 
-  async searchByName(name) {
+  async searchByName(name: string) {
     await this.search_input.click();
     await this.search_input.fill(name);
     await this.search_input.press("Enter");
   }
   async getProductList() {}
 
-  async selectProduct(productCode, productName) {
+  async selectProduct(productCode: string, productName: string) {
     await this.page
       .getByRole("heading", { name: `${productName}` })
       .locator("product-" + `${productCode}` + "-title")
@@ -45,8 +45,8 @@ export class SearchProductPage {
   async filterBySpecial() {}
   async filterByDietarynLifestyle() {}
   async sortBy() {}
-  async AddtoTrolley(number) {}
-  async ClickpPgination(number) {}
+  async AddtoTrolley(number: any) {}
+  async ClickpPgination(number: any) {}
   async clickBackToTop() {
     await this.back_to_top.click();
   }

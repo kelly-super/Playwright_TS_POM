@@ -24,10 +24,13 @@ export class EnterPasswordPage {
     this.reset_my_passwrod_link = page.getByRole("link", {
       name: "Reset my password",
     });
-    this.signIn_button = page.getByRole("button", { name: " Sign in " });
+    this.signIn_button = page.getByTestId("'submit'");
   }
 
-  async enterPassword(password) {
+  async getMessage() {
+    return await this.success_msg.textContent();
+  }
+  async enterPassword(password: string) {
     await this.password_input.click();
     await this.password_input.pressSequentially(password);
   }

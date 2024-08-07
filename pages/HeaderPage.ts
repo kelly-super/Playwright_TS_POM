@@ -3,6 +3,7 @@ import { expect, type Page, type Locator } from "@playwright/test";
 export class HeaderPage {
   readonly page: Page;
   readonly SignIn_Or_Register: Locator;
+  readonly Kia_Ora: Locator;
   readonly Logo_Image: Locator;
   readonly contact_Link: Locator;
   readonly Stores_Link: Locator;
@@ -15,6 +16,12 @@ export class HeaderPage {
     this.SignIn_Or_Register = page.getByRole("button", {
       name: "Sign in or Register",
     });
+    const welcome = " Kia ora, " + `${process.env.CD_RegisterName}`;
+    this.Kia_Ora = page.getByRole("button", {
+      name: welcome,
+      exact: false,
+    });
+
     this.Logo_Image = page.getByAltText(
       "Online Supermarket: Online Grocery Shopping & Free Recipes at countdown.co.nz"
     );

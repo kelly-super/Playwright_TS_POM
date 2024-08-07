@@ -62,8 +62,7 @@ export default defineConfig({
     {
       name: "e2e",
       testMatch: "**/*.spec.ts",
-      // dependencies: ["setup"],
-      // use: { ...devices["Desktop Firefox"] },
+      //   dependencies: ["setup"],
       use: {
         ...devices["Desktop Chrome"],
         storageState: STORAGE_STATE,
