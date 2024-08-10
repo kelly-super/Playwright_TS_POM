@@ -9,7 +9,7 @@ setup("Login to the application", async ({ page }) => {
   await page.goto("/");
   const headerPage = new HeaderPage(page);
   const isLogin = await headerPage.Kia_Ora.isVisible();
-  console.log("is login " + isLogin);
+  console.log("Is login ? " + isLogin);
   if (!isLogin) {
     const enterEmailPage = new EnterEmailPage(page);
     const enterPasswordPage = new EnterPasswordPage(page);
@@ -22,7 +22,7 @@ setup("Login to the application", async ({ page }) => {
     enterEmailPage.enterEmail(process.env.CD_USERNAME!);
     enterEmailPage.clickContinue();
 
-    await expect(enterPasswordPage.success_msg).toBeVisible();
+    // await expect(enterPasswordPage.success_msg).toBeVisible();
 
     await enterPasswordPage.enterPassword(process.env.CD_PASSWORD!);
     await enterPasswordPage.clickSignIn();

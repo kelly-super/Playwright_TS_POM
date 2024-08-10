@@ -15,7 +15,7 @@ export class SearchProductPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.search_input = page.locator("#search");
+    this.search_input = page.getByTestId("search");
     this.filter_by_select_first = page.getByRole("button", {
       name: " Specials ",
     });
@@ -31,17 +31,21 @@ export class SearchProductPage {
 
   async searchByName(name: string) {
     await this.search_input.click();
-    await this.search_input.fill(name);
+    await this.search_input.pressSequentially(name);
     await this.search_input.press("Enter");
   }
   async getProductList() {}
 
   async selectProduct(productCode: string, productName: string) {
+    console.log("search product " + productCode + " name is :" + productName);
+
+    //await this.page.getByRole("generic").scrollIntoViewIfNeeded();
+
     await this.page
-      .getByRole("heading", { name: `${productName}` })
-      .locator("product-" + `${productCode}` + "-title")
+      .locator("//cdx-card[@class='card ng-star-inserted'][1]")
       .click();
   }
+
   async filterBySpecial() {}
   async filterByDietarynLifestyle() {}
   async sortBy() {}

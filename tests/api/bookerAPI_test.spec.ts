@@ -17,7 +17,7 @@ test("API chaining", async ({ request }) => {
   expect(response.status()).toBe(201);
   console.log(responsebody.accessToken);
 
-  request.storageState = responsebody.accessToken;
+  //request.storageState = responsebody.accessToken;
 });
 
 test.skip("API Status", async ({ request }) => {

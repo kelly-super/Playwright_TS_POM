@@ -25,7 +25,7 @@ export class NavigationPage {
       .getByTestId("navigationBar")
       .getByText("Low Price");
 
-    this.nav_search = page.locator("#search");
+    this.nav_search = page.getByTestId("search");
 
     this.nav_pick_up = page.locator('class="newFulfilmentBar-address"');
     this.nav_cart = page.getByRole("link", {
@@ -42,7 +42,9 @@ export class NavigationPage {
     await this.nav_browser.click();
   }
   async clickTheTrolley() {
-    console.log("*********Trollery icon************** ");
+    console.log(
+      "*********Click the Trollery icon on the Navigate bar************** "
+    );
     await this.nav_cart.hover();
     await this.nav_cart.click();
   }

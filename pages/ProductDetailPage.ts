@@ -11,9 +11,7 @@ export class ProductDetailPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.add_to_trolley = page.getByRole("button", {
-      name: " Add to trolley ",
-    });
+    this.add_to_trolley = page.getByTestId("addToTrolleyBtn");
     this.personal_shopper_notes_toggle = page.getByRole("button", {
       name: " Personal shopper notes ",
     });
@@ -23,11 +21,14 @@ export class ProductDetailPage {
   }
 
   async ClickaAdToTrolley() {
-    this.add_to_trolley.click();
+    console.log("ClickaAdToTrolley");
+    await this.page.mouse.move(0, 0);
+    await this.page.getByTestId("addToTrolleyBtn").click();
+    // await this.add_to_trolley.click();
   }
   async AddNotes(notes: string) {
-    this.personal_shopper_notes_toggle.click();
-    this.instruction_note.fill(notes);
-    this.save_notes.click();
+    await this.personal_shopper_notes_toggle.click();
+    await this.instruction_note.fill(notes);
+    await this.save_notes.click();
   }
 }

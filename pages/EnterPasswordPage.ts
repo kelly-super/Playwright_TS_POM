@@ -28,7 +28,7 @@ export class EnterPasswordPage {
   }
 
   async getMessage() {
-    return await this.success_msg.textContent();
+    await this.success_msg.scrollIntoViewIfNeeded();
   }
   async enterPassword(password: string) {
     await this.password_input.click();
