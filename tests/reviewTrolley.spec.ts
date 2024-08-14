@@ -15,11 +15,11 @@ test("varify the navigate price equals to the Subtotal", async ({ page }) => {
 
   //let unitPrice = reviewTrolleyPage.getUnitPrice(productId);
   // const qyt = await page.locator(`#quantity-${productId}`).inputValue();
-  await reviewTrolleyPage.saveItemsAslist("savelist1");
+  //await reviewTrolleyPage.saveItemsAslist("savelist1");
   await reviewTrolleyPage.removeAnItem(productId);
+
   await reviewTrolleyPage.ClearTrolly();
   await page.reload();
-  await page.pause();
 });
 test.skip("varify the items price sum equals to the Subtotal", async ({
   page,

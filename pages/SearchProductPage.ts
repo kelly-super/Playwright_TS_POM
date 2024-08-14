@@ -29,7 +29,7 @@ export class SearchProductPage {
     // this.categories_list = page.locator();
   }
 
-  async searchByName(name: string) {
+  async searchByNameOrCode(name: string) {
     await this.search_input.click();
     await this.search_input.pressSequentially(name);
     await this.search_input.press("Enter");

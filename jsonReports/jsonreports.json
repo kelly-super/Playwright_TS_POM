@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 3
+      "actualWorkers": 1
     },
     "preserveOutput": "always",
     "reporter": [
@@ -75,13 +75,13 @@
   },
   "suites": [
     {
-      "title": "reviewTrolley.spec.ts",
-      "file": "reviewTrolley.spec.ts",
+      "title": "e2e_valid.spec.ts",
+      "file": "e2e_valid.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "varify the navigate price equals to the Subtotal",
+          "title": "E2E testing - Search product from the search function ",
           "ok": false,
           "tags": [],
           "tests": [
@@ -95,7 +95,7 @@
                 {
                   "workerIndex": 0,
                   "status": "timedOut",
-                  "duration": 30036,
+                  "duration": 30034,
                   "error": {
                     "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -106,54 +106,47 @@
                     },
                     {
                       "location": {
-                        "file": "D:\\Kelly\\Playwright_TS_POM\\tests\\reviewTrolley.spec.ts",
-                        "column": 14,
-                        "line": 21
+                        "file": "D:\\Kelly\\Playwright_TS_POM\\pages\\HaveYouForgottenPage.ts",
+                        "column": 37,
+                        "line": 15
                       },
-                      "message": "Error: page.reload: Test timeout of 30000ms exceeded.\nCall log:\n  \u001b[2m- waiting for navigation until \"load\"\u001b[22m\n\u001b[2m  -   navigated to \"https://www.woolworths.co.nz/reviewtrolley\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m reviewTrolleyPage\u001b[33m.\u001b[39mremoveAnItem(productId)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m reviewTrolleyPage\u001b[33m.\u001b[39m\u001b[33mClearTrolly\u001b[39m()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 21 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mreload()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 22 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mpause()\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 24 |\u001b[39m test\u001b[33m.\u001b[39mskip(\u001b[32m\"varify the items price sum equals to the Subtotal\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({\u001b[0m\n\n\u001b[2m    at D:\\Kelly\\Playwright_TS_POM\\tests\\reviewTrolley.spec.ts:21:14\u001b[22m"
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n  \u001b[2m- waiting for getByTestId('continueCheckoutButton')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\pages\\HaveYouForgottenPage.ts:15\n\n\u001b[0m \u001b[90m 13 |\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36masync\u001b[39m clickContinueToCheckout() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcontinue_to_checkout\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m   }\n \u001b[90m 17 |\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36masync\u001b[39m clickMyAccount() {\u001b[0m\n\n\u001b[2m    at HaveYouForgottenPage.clickContinueToCheckout (D:\\Kelly\\Playwright_TS_POM\\pages\\HaveYouForgottenPage.ts:15:37)\u001b[22m\n\u001b[2m    at D:\\Kelly\\Playwright_TS_POM\\tests\\e2e_valid.spec.ts:27:30\u001b[22m"
                     }
                   ],
                   "stdout": [
                     {
+                      "text": "*********Search 130935 ************** \n"
+                    },
+                    {
+                      "text": "search product 130935 name is :anchor milk standard blue\n"
+                    },
+                    {
                       "text": "*********Click the Trollery icon on the Navigate bar************** \n"
-                    },
-                    {
-                      "text": "product 130935currentQuantity is 5\n"
-                    },
-                    {
-                      "text": "save_items_as_list\n"
-                    },
-                    {
-                      "text": "remove item 130935\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-08-09T07:58:09.459Z",
+                  "startTime": "2024-08-13T10:30:36.251Z",
                   "attachments": []
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "b91323a25cfa5def7a49-6d6e4f846dabcb3812b6",
-          "file": "reviewTrolley.spec.ts",
-          "line": 6,
+          "id": "b62c060cc1b796383f3c-3a39ad042442a4652dce",
+          "file": "e2e_valid.spec.ts",
+          "line": 11,
           "column": 5
         },
         {
-          "title": "varify the items price sum equals to the Subtotal",
+          "title": "Clear Trolley",
           "ok": true,
           "tags": [],
           "tests": [
             {
               "timeout": 30000,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
+              "annotations": [],
+              "expectedStatus": "passed",
               "projectId": "e2e",
               "projectName": "e2e",
               "results": [
@@ -165,63 +158,27 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-08-09T07:58:08.376Z",
+                  "startTime": "2024-08-13T10:31:08.343Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "b91323a25cfa5def7a49-404767046126175ccc6f",
-          "file": "reviewTrolley.spec.ts",
-          "line": 24,
-          "column": 6
-        },
-        {
-          "title": "varify when adding the quantity of a item, the price",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "e2e",
-              "projectName": "e2e",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2024-08-09T07:58:08.377Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "b91323a25cfa5def7a49-4a9f94ebac70706ab11b",
-          "file": "reviewTrolley.spec.ts",
-          "line": 28,
-          "column": 6
+          "id": "b62c060cc1b796383f3c-adf742a12aed6342810d",
+          "file": "e2e_valid.spec.ts",
+          "line": 33,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-08-09T07:58:08.205Z",
-    "duration": 33660.651999999995,
+    "startTime": "2024-08-13T10:30:35.482Z",
+    "duration": 32875.437999999995,
     "expected": 0,
-    "skipped": 2,
+    "skipped": 1,
     "unexpected": 1,
     "flaky": 0
   }

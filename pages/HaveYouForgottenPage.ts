@@ -7,9 +7,7 @@ export class HaveYouForgottenPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.continue_to_checkout = page.getByRole("button", {
-      name: " Continue to Checkout ",
-    });
+    this.continue_to_checkout = page.getByTestId("continueCheckoutButton");
     this.switch_to_my_account = page.locator('[href*="/account/preferences"]');
   }
 

@@ -32,7 +32,7 @@ export class ReviewTrolleyPage {
   }
 
   async ClearTrolly() {
-    await this.checkout_button.click();
+    await this.clear_trolley.click();
   }
   async ContinueShopping() {
     await this.continue_shopping_button.hover();
@@ -47,7 +47,7 @@ export class ReviewTrolleyPage {
   }
   async removeAnItem(id: string) {
     console.log("remove item " + id);
-    await this.page.getByTestId("removeTrolleyBtn-" + `${id}`).click();
+    await this.page.getByTestId(`removeTrolleyBtn-${id}`).click();
   }
   async clickAddQuantityButton(id: string) {
     await this.page.getByTestId(`increment-quantity-${id}`).click();
@@ -58,7 +58,7 @@ export class ReviewTrolleyPage {
 
   async getUnitPrice(id: string) {
     let unitPrice = (
-      await this.page.locator("#product-" + `${id}` + "-price").innerText()
+      await this.page.locator(`#product-${id}-price`).innerText()
     )
       .split(" ")[0]
       .replace("$", "");
@@ -68,13 +68,36 @@ export class ReviewTrolleyPage {
 
   async saveItemsAslist(listname: string) {
     console.log("save_items_as_list");
+    await this.save_items_as_list.scrollIntoViewIfNeeded();
     await this.save_items_as_list.hover();
     await this.save_items_as_list.click();
-    await this.page.waitForEvent("popup");
-    await this.page.getByTestId("listName").fill(listname);
-    await this.page.pause();
+    await Promise.race([
+      this.page.locator("#listName").waitFor(),
+      // this.page.locator("button= Cancel").waitFor(),
+    ]);
+    let isVisable = await this.page.locator("#listName").isVisible();
+    if (isVisable) {
+      await this.page.locator("#listName").fill(listname);
+      await this.page
+        .getByRole("button", { name: " Save list ", exact: true })
+        .click({ force: true });
+
+      await Promise.race([
+        this.page
+          .getByRole("heading", { name: "List Saved", exact: true })
+          .waitFor(),
+      ]);
+      await this.page
+        .getByRole("button", { name: " Close ", exact: true })
+        .click({ force: true });
+    } else {
+      await this.page
+        .getByRole("button", { name: " Cancel ", exact: true })
+        .click({ force: true });
+    }
   }
   async Checkout() {
+    await this.checkout_button.hover();
     await this.checkout_button.click();
   }
 }

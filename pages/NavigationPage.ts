@@ -54,7 +54,7 @@ export class NavigationPage {
     await this.nav_pick_up.click();
   }
 
-  async searchByName(name: string) {
+  async searchByNameOrCode(name: string) {
     console.log("*********Search " + name + " ************** ");
 
     await this.nav_search.click();

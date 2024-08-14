@@ -3,7 +3,10 @@ import { SearchProductPage } from "../pages/SearchProductPage";
 import { NavigationPage } from "../pages/NavigationPage";
 import { ProductDetailPage } from "../pages/ProductDetailPage";
 import { ReviewTrolleyPage } from "../pages/ReviewTrolleyPage";
+import { HaveYouForgottenPage } from "../pages/HaveYouForgottenPage";
+import { BookaTimeSlotPage } from "../pages/BookaTimeSlotPage";
 
+const productId = "130935";
 test.describe.configure({ mode: "serial" });
 test("E2E testing - Search product from the search function ", async ({
   page,
@@ -13,33 +16,25 @@ test("E2E testing - Search product from the search function ", async ({
   const navigationPage = new NavigationPage(page);
   const productDetialPage = new ProductDetailPage(page);
   const reviewTrolleyPage = new ReviewTrolleyPage(page);
-  await searchProductPage.searchByName("milk");
-  await searchProductPage.selectProduct("282819", "anchor milk standard blue");
-  // await page.waitForURL("**/productdetails*");
-  //await productDetialPage.ClickaAdToTrolley();
-  //const IsSignIn = await page.getByTestId("modal").isVisible();
-  // if (IsSignIn) {
-  //Already SignIn
-  //  await productDetialPage.ClickaAdToTrolley();
+  const haveYouForgottenPage = new HaveYouForgottenPage(page);
+  const bookATimeSlotPage = new BookaTimeSlotPage(page);
+
+  await navigationPage.searchByNameOrCode(productId);
+  await searchProductPage.selectProduct(productId, "anchor milk standard blue");
+
   await navigationPage.clickTheTrolley();
   await reviewTrolleyPage.ContinueShopping();
-  await searchProductPage.selectProduct("282819", "anchor milk standard blue");
-  await navigationPage.clickTheTrolley();
-  await reviewTrolleyPage.ClearTrolly();
-  await page.pause();
-  //  } else {
-  // need signIn
-  // }
-  //searchProductPage.searchByName("milk");
-  //searchProductPage.selectProduct("282768", "Woolworths Milk Standard");
+  await haveYouForgottenPage.clickContinueToCheckout();
+
+  await bookATimeSlotPage.selectDelivery();
+  await bookATimeSlotPage.chooseATime();
 });
 
-test.skip("Clear Trolley", async ({ page }) => {
+test("Clear Trolley", async ({ page }) => {
   await page.goto("/");
   const navigationPage = new NavigationPage(page);
   const reviewTrolleyPage = new ReviewTrolleyPage(page);
   await navigationPage.clickTheTrolley();
   await reviewTrolleyPage.ClearTrolly();
   await page.reload();
-  await page.pause();
 });
